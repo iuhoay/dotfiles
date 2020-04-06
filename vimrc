@@ -26,8 +26,19 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'ap/vim-css-color'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/vim-easy-align'
+Plug 'airblade/vim-gitgutter'
+Plug 'itchyny/vim-gitbranch'
 
 call plug#end()
+
+""""""""""""""""""""""""
+" gitgutter
+""""""""""""""""""""""""
+function! GitStatus()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return printf('+%d ~%d -%d', a, m, r)
+endfunction
+set statusline+=%{GitStatus()}
 
 """"""""""""""""""""""""
 " lightline.vim
@@ -35,7 +46,18 @@ call plug#end()
 set laststatus=2
 " let g:lightline = { 'colorscheme': 'wombat' }
 " let g:lightline = { 'colorscheme': 'landscape' }
-let g:lightline = { 'colorscheme': 'darcula' }
+let g:lightline = {
+      \ 'colorscheme': 'darcula',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified', 'gitbranch', 'gitstatus' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitstatus': 'GitStatus',
+      \   'gitbranch': 'gitbranch#name',
+      \ },
+      \ }
+
 
 """"""""""""""""""""""""
 " fzf
@@ -56,9 +78,16 @@ xmap ga <Plug>(EasyAlign)
 map ga <Plug>(EasyAlign)
 
 """"""""""""""""""""""""
+" vim-gitgutter
+""""""""""""""""""""""""
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+
+""""""""""""""""""""""""
 " vim config
 """"""""""""""""""""""""
 set mouse=nicr " mouse scrolling
 vmap <C-C> "+y
 set nu
 colorscheme dracula
+set updatetime=100
