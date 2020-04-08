@@ -28,6 +28,8 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/vim-gitbranch'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 
 call plug#end()
 
@@ -62,6 +64,7 @@ let g:lightline = {
 """"""""""""""""""""""""
 " fzf
 """"""""""""""""""""""""
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 map <C-p> :Files<CR>
 
 """"""""""""""""""""""""
@@ -84,10 +87,16 @@ nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
 
 """"""""""""""""""""""""
+" gv
+""""""""""""""""""""""""
+nmap <Leader>gv :GV<CR>
+
+""""""""""""""""""""""""
 " vim config
 """"""""""""""""""""""""
-set mouse=nicr " mouse scrolling
 vmap <C-C> "+y
 set nu
-colorscheme dracula
+set mouse=nicr " mouse scrolling
 set updatetime=100
+set backspace=indent,eol,start
+colorscheme dracula
