@@ -33,6 +33,8 @@ Plug 'junegunn/gv.vim'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'jiangmiao/auto-pairs'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
@@ -103,3 +105,8 @@ set mouse=nicr " mouse scrolling
 set updatetime=100
 set backspace=indent,eol,start
 colorscheme dracula
+
+""""""""""""""""""""""""
+" ruby
+""""""""""""""""""""""""
+au BufRead,BufNewFile *.rabl setf ruby
