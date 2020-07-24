@@ -35,6 +35,7 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'jiangmiao/auto-pairs'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wakatime/vim-wakatime'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -110,3 +111,8 @@ colorscheme dracula
 " ruby
 """"""""""""""""""""""""
 au BufRead,BufNewFile *.rabl setf ruby
+
+""""""""""""""""""""""""
+" rust
+""""""""""""""""""""""""
+let g:rustfmt_autosave = 1
