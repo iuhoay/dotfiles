@@ -15,7 +15,7 @@ Plug 'tpope/vim-rails'
 Plug 'slim-template/vim-slim'
 
 " Snippet
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " Markdown preview
 " commands
@@ -36,6 +36,7 @@ Plug 'jiangmiao/auto-pairs'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wakatime/vim-wakatime'
 Plug 'rust-lang/rust.vim'
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -55,7 +56,7 @@ set laststatus=2
 " let g:lightline = { 'colorscheme': 'wombat' }
 " let g:lightline = { 'colorscheme': 'landscape' }
 let g:lightline = {
-      \ 'colorscheme': 'darcula',
+      \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'filename', 'modified', 'gitbranch', 'gitstatus' ] ]
@@ -105,7 +106,8 @@ set nu
 set mouse=nicr " mouse scrolling
 set updatetime=100
 set backspace=indent,eol,start
-colorscheme dracula
+" colorscheme dracula
+colorscheme nord
 
 """"""""""""""""""""""""
 " ruby
