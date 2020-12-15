@@ -118,3 +118,9 @@ au BufRead,BufNewFile *.rabl setf ruby
 " rust
 """"""""""""""""""""""""
 let g:rustfmt_autosave = 1
+
+""""""""""""""""""""""""
+" EditorConfig
+""""""""""""""""""""""""
+let g:EditorConfig_preserve_formatoptions = 1
+let g:EditorConfig_max_line_indicator = 'fill' " line,fill,exceeding,none
