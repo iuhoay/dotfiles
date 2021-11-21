@@ -102,8 +102,12 @@ source $ZSH/oh-my-zsh.sh
 alias vi="nvim"
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
+export EDITOR="nvim"
+
 export GOPATH=$HOME/go/bin
 export PATH=$PATH:$GOPATH
 export GPG_TTY=$(tty)
 
 source /usr/share/nvm/init-nvm.sh
+
+eval "$(rbenv init -)"
