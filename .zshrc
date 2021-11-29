@@ -102,6 +102,9 @@ source $ZSH/oh-my-zsh.sh
 alias vi="nvim"
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
+alias be="bundle exec"
+alias bi="bundle install"
+
 export EDITOR="nvim"
 
 export GOPATH=$HOME/go
@@ -111,3 +114,4 @@ export GPG_TTY=$(tty)
 source /usr/share/nvm/init-nvm.sh
 
 eval "$(rbenv init -)"
+eval "$(starship init zsh)"
