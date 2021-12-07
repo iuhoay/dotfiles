@@ -104,6 +104,7 @@ alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
 alias be="bundle exec"
 alias bi="bundle install"
+alias open="xdg-open"
 
 export EDITOR="nvim"
 

@@ -68,9 +68,13 @@ let g:lightline = {
       \ 'component_function': {
       \   'gitstatus': 'GitStatus',
       \   'gitbranch': 'gitbranch#name',
+      \   'filename': 'LighlineFilename',
       \ },
       \ }
 
+function! LighlineFilename()
+  return expand('%:t') !=# '' ? @% : '[No Name]'
+endfunction
 
 """"""""""""""""""""""""
 " fzf
@@ -106,7 +110,7 @@ nmap <Leader>gv :GV<CR>
 " vim config
 """"""""""""""""""""""""
 vmap <C-C> "+y
-set nu
+set rnu
 set mouse=nicr " mouse scrolling
 set updatetime=100
 set backspace=indent,eol,start
