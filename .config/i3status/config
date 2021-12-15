@@ -1,0 +1,52 @@
+general {
+        output_format = "i3bar"
+        colors = false
+        markup = pango
+        interval = 5
+}
+
+order += "battery all"
+order += "load"
+order += "memory"
+order += "cpu_usage"
+order += "volume master"
+order += "tztime PST"
+order += "tztime local"
+
+volume master {
+        format = "🔊: %volume"
+        format_muted = "🔇: muted (%volume)"
+        device = "default"
+}
+
+tztime local {
+        format = "%A %y/%m/%d %H:%M:%S"
+        timezone = "Asia/Shanghai"
+}
+
+tztime PST {
+        format = "%a %H:%M %Z"
+        timezone = "America/Los_Angeles"
+}
+
+
+load {
+        format = "%5min"
+        separator = false
+}
+
+memory {
+        separator = false
+        format = "%percentage_used"
+}
+
+cpu_usage {
+        format = "%usage"
+}
+
+battery all {
+        format = "%status %remaining"
+        status_chr = "⚡"
+        status_full = "🔌"
+        status_bat = "🔋"
+}
