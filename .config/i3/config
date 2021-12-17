@@ -42,12 +42,18 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+bindsym $mod+Ctrl+Shift+l exec --no-startup-id ~/Developer/user_bin/blurlock
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# adjust brightness in X.
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/Developer/git_repos/xrandr-brightness-script/brightness.sh + DP-4 0.1
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/Developer/git_repos/xrandr-brightness-script/brightness.sh - DP-4 0.1
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -58,6 +64,7 @@ bindsym $mod+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym $mod+x kill
 
 # start dmenu (a program launcher)
 bindsym $mod+m exec --no-startup-id "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'mononoki Nord Font-8'"
@@ -189,6 +196,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+bindsym $mod+c exec "flameshot gui"
+
 
 # startup fcitx5
 exec --no-startup-id fcitx5 -d
@@ -198,6 +207,9 @@ exec xrandr --output DP-4 --auto --primary --output HDMI-0 --rotate right --righ
 
 # startup nitrogen
 exec --no-startup-id nitrogen --restore
+
+# notification
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
 # start Polybar
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -210,19 +222,23 @@ bar {
                 statusline #F8F8F2
                 separator  #44475A
 
-                focused_workspace  #44475A #44475A #F8F8F2
-                active_workspace   #282A36 #44475A #F8F8F2
+                focused_workspace  #8be9fd #8be9fd #282a36
+
+                # Dracula Theme
+                # focused_workspace  #44475A #44475A #F8F8F2
+                # active_workspace   #282A36 #44475A #F8F8F2
                 inactive_workspace #282A36 #282A36 #BFBFBF
                 urgent_workspace   #FF5555 #FF5555 #F8F8F2
                 binding_mode       #FF5555 #FF5555 #F8F8F2
         }
 
         # i3bar_command i3bar --transparency
-        font pango:mononoki Nerd Font 8
+        font pango:mononoki Nerd Font, FontAwesome 8
         status_command i3status
         tray_output primary
 }
 
+# Dracula Theme
 # class                 border  bground text    indicator child_border
 client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
 client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
@@ -231,3 +247,7 @@ client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
 client.background       #F8F8F2
+
+
+# Put clients on specific workspaces.
+assign [class="Fragment"] 10

@@ -110,7 +110,8 @@ nmap <Leader>gv :GV<CR>
 " vim config
 """"""""""""""""""""""""
 vmap <C-C> "+y
-set rnu
+" set rnu
+set nu
 set mouse=nicr " mouse scrolling
 set updatetime=100
 set backspace=indent,eol,start
