@@ -9,7 +9,6 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font pango:monospace 8
@@ -23,8 +22,8 @@ font pango:mononoki Nerd Font 8
 default_border pixel 1
 smart_borders on
 
-gaps outer 1
-gaps inner 1
+gaps outer 5
+gaps inner 5
 smart_gaps on
 
 # Start XDG autostart .desktop files using dex. See also
@@ -129,14 +128,14 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
 set $ws2 "2"
-set $ws3 "3"
+set $ws3 "3:  "
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws10 "10:  "
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -177,10 +176,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -196,6 +195,17 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+mode "workspace" {
+        bindsym h move workspace to output left
+        bindsym l move workspace to output right
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+b mode "default"
+}
+bindsym $mod+b mode "workspace"
+
 bindsym $mod+c exec "flameshot gui"
 
 
@@ -203,7 +213,8 @@ bindsym $mod+c exec "flameshot gui"
 exec --no-startup-id fcitx5 -d
 
 # xrandr
-exec xrandr --output DP-4 --auto --primary --output HDMI-0 --rotate right --right-of DP-4
+exec xrandr --output DP-4 --auto --primary --output HDMI-0 --rotate normal --right-of DP-4
+# exec xrandr --output DP-4 --auto --primary --output HDMI-0 --rotate right --right-of DP-4
 
 # startup nitrogen
 exec --no-startup-id nitrogen --restore
@@ -233,8 +244,9 @@ bar {
         }
 
         # i3bar_command i3bar --transparency
-        font pango:mononoki Nerd Font, FontAwesome 8
+        font pango:mononoki Nerd Font, FontAwesome 6
         status_command i3status
+        # status_command i3blocks
         tray_output primary
 }
 
@@ -250,4 +262,5 @@ client.background       #F8F8F2
 
 
 # Put clients on specific workspaces.
-assign [class="Fragment"] 10
+assign [class="Fragment"] $ws10
+assign [class="Rhythmbox"] $ws10

@@ -10,9 +10,10 @@ general {
 }
 
 order += "disk /"
+order += "disk /run/media/iuhoay/MEDIA"
 order += "ethernet eno1"
 order += "wireless wlan0"
-order += "battery all"
+order += "battery All"
 order += "load"
 order += "memory"
 order += "cpu_usage"
@@ -21,7 +22,11 @@ order += "tztime PST"
 order += "tztime local"
 
 disk / {
-        format = "%free"
+        format = " %free"
+}
+
+disk /run/media/iuhoay/MEDIA {
+        format = "  %free"
 }
 
 ethernet eno1 {
@@ -65,9 +70,10 @@ cpu_usage {
         format = "%usage"
 }
 
-battery all {
+battery All {
         format = "%status %remaining"
         status_chr = ""
         status_full = "ﮣ"
         status_bat = "🔋"
+        status_unk = ""
 }

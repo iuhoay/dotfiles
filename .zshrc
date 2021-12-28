@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z)
+plugins=(git z rails)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -108,8 +108,12 @@ alias open="xdg-open"
 
 export EDITOR="nvim"
 
+export MY_SCRIPTS_PATH="$HOME/.config/my_scripts"
+
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:$MY_SCRIPTS_PATH/bin
+
+
 export GPG_TTY=$(tty)
 
 source /usr/share/nvm/init-nvm.sh

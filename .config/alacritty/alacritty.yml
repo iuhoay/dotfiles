@@ -43,7 +43,10 @@ colors:
     cyan: '#186c60'
     white: '#63686d'
 
-  background_opacity: 0.6
+background_opacity: 0.6
+
+window:
+  opacity: 0.5
 
 font:
   normal:
@@ -58,4 +61,4 @@ font:
   bold_italic:
     family: mononoki Nerd Font
     style: BoldItalic
-  size: 9
+  size: 8

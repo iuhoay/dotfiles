@@ -42,6 +42,8 @@ Plug 'lambdalisue/fern-hijack.vim'
 " Markdown Preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
+Plug 'udalov/kotlin-vim'
+
 call plug#end()
 
 """"""""""""""""""""""""
