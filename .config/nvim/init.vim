@@ -16,6 +16,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-rails'
 Plug 'slim-template/vim-slim'
 
+" Vue
+Plug 'leafOfTree/vim-vue-plugin'
+
 Plug 'ap/vim-css-color'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/vim-easy-align'
