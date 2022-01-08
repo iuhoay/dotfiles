@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/iuhoay/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z rails)
+plugins=(git z rails zsh-autosuggestions gh golang asdf bundler)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -82,11 +82,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -100,23 +100,21 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi="nvim"
-alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+alias vim="nvim"
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias ssh="kitty +kitten ssh"
 
-alias be="bundle exec"
-alias bi="bundle install"
-alias open="xdg-open"
+. /opt/asdf-vm/asdf.sh
 
-export EDITOR="nvim"
 
-export MY_SCRIPTS_PATH="$HOME/.config/my_scripts"
-
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin:$MY_SCRIPTS_PATH/bin
-
+export http_proxy='http://127.0.0.1:7890'
+export https_proxy='http://127.0.0.1:7890'
 
 export GPG_TTY=$(tty)
 
-source /usr/share/nvm/init-nvm.sh
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
 
-eval "$(rbenv init -)"
+export PATH=$PATH:$GOPATH/bin
+
 eval "$(starship init zsh)"

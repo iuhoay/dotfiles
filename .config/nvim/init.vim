@@ -44,6 +44,11 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 Plug 'udalov/kotlin-vim'
 
+Plug 'preservim/nerdtree' |
+      \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+      \ Plug 'ryanoasis/vim-devicons' |
+      \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
 call plug#end()
 
 """"""""""""""""""""""""
@@ -154,3 +159,12 @@ augroup fern-custom
 augroup END
 
 let g:fern#renderer = "nerdfont"
+
+
+""""""""""""
+" Nerdtree
+""""""""""""
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>

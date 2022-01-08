@@ -43,11 +43,6 @@ colors:
     cyan: '#186c60'
     white: '#63686d'
 
-background_opacity: 0.6
-
-window:
-  opacity: 0.5
-
 font:
   normal:
     family: mononoki Nerd Font
@@ -61,4 +56,11 @@ font:
   bold_italic:
     family: mononoki Nerd Font
     style: BoldItalic
-  size: 8
+  size: 12
+
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
