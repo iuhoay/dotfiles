@@ -61,7 +61,7 @@ CompactInputMethodInformation=True
 # Show first input method information
 ShowFirstInputMethodInformation=True
 # Default page size
-DefaultPageSize=5
+DefaultPageSize=10
 # Force Enabled Addons
 EnabledAddons=
 # Force Disabled Addons

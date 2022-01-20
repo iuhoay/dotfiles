@@ -115,6 +115,6 @@ export GPG_TTY=$(tty)
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:/home/iuhoay/.local/bin
 
 eval "$(starship init zsh)"

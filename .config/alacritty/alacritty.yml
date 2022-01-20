@@ -56,7 +56,7 @@ font:
   bold_italic:
     family: mononoki Nerd Font
     style: BoldItalic
-  size: 12
+  size: 11
 
 shell:
   program: /bin/zsh
