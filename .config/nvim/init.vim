@@ -52,6 +52,10 @@ Plug 'preservim/nerdtree' |
       \ Plug 'ryanoasis/vim-devicons' |
       \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+" snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 call plug#end()
 
 """"""""""""""""""""""""
@@ -151,7 +155,6 @@ let g:EditorConfig_max_line_indicator = 'fill' " line,fill,exceeding,none
 set t_Co=256
 set background=dark
 colorscheme PaperColor
-
 
 """"""""""""
 " Fern
