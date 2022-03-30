@@ -53,8 +53,10 @@ Plug 'preservim/nerdtree' |
       \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " snippets
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 call plug#end()
 
@@ -73,8 +75,9 @@ set statusline+=%{GitStatus()}
 set laststatus=2
 " let g:lightline = { 'colorscheme': 'wombat' }
 " let g:lightline = { 'colorscheme': 'landscape' }
+" let g:lightline = { 'colorscheme': 'PaperColor' }
 let g:lightline = {
-      \ 'colorscheme': 'PaperColor',
+      \ 'colorscheme': 'tokyonight',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'filename', 'modified', 'gitbranch', 'gitstatus' ] ]
@@ -146,15 +149,6 @@ let g:rustfmt_autosave = 1
 let g:EditorConfig_preserve_formatoptions = 1
 let g:EditorConfig_max_line_indicator = 'fill' " line,fill,exceeding,none
 
-""""""""""""
-" Colorscheme
-""""""""""""
-" colorscheme dracula
-" colorscheme nord
-
-set t_Co=256
-set background=dark
-colorscheme PaperColor
 
 """"""""""""
 " Fern
@@ -174,3 +168,26 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+
+
+""""""""""""
+" coc.nvim
+""""""""""""
+let g:coc_global_extensions = ['coc-snippets', 'coc-solargraph']
+
+
+let g:tokyonight_style = "night"
+let g:tokyonight_terminal_colors = "true"
+let g:tokyonight_italic_functions = 1
+let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
+
+""""""""""""
+" Colorscheme
+""""""""""""
+" colorscheme dracula
+" colorscheme nord
+
+" set t_Co=256
+set background=dark
+" colorscheme PaperColor
+colorscheme tokyonight
