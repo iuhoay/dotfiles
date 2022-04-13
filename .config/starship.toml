@@ -1,1 +1,5 @@
 # add_newline = false
+
+[java]
+symbol = ' '
+style = 'fg:cyan bold'
