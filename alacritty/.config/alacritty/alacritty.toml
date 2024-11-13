@@ -40,18 +40,23 @@ index = 17
 color = '#db4b4b'
 
 [font]
-size = 12
+size = 14
 normal = { family = "Mononoki Nerd Font", style = "Regular" }
 bold = { family = "Mononoki Nerd Font", style = "Bold" }
 italic = { family = "Mononoki Nerd Font", style = "Italic" }
 bold_italic = { family = "Mononoki Nerd Font", style = "Bold Italic" }
 
-[shell]
-args = ["-l", "-c", "tmux new -s || tmux"]
+# normal = { family = "Cascadia Code PL", style = "Regular" }
+# bold = { family = "Cascadia Code PL", style = "Bold" }
+# italic = { family = "Cascadia Code PL", style = "Italic" }
+# bold_italic = { family = "Cascadia Code PL", style = "Bold Italic" }
+
+[terminal.shell]
+# args = ["-l", "-c", "tmux new -s || tmux"]
 program = "/bin/zsh"
 
 [window]
-padding = { x = 4, y = 0 }
+padding = { x = 0, y = 0 }
 dynamic_padding = true
 # decorations = "Full"
 decorations = "None"
@@ -70,4 +75,6 @@ bindings = [
 
 [env]
 TERM = "xterm-256color"
-WINIT_X11_SCALE_FACTOR = "1.5"
+WINIT_X11_SCALE_FACTOR = "2"
+
+[terminal]
